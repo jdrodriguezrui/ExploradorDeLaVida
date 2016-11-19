@@ -98,7 +98,8 @@ public class GameFrame extends JFrame {
     public void openMenu() {
         music.stop();
         hide();
-        new Menu();
+        Menu menu = new Menu();
+        menu.setVisible(true);
     }
 //----------Musica-----------
     public void stopMusic() {
