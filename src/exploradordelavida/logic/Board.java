@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JPanel;
 import java.util.TreeMap;
 
-public class Board extends JPanel {
+public class Board extends JPanel implements java.io.Serializable{
 
     // ----------------------------------------------------------------------------------- ATTRIBUTES
     private final int sideLength; // IMPORTANT! Each unit is a cell... And this is a squared board.
@@ -41,6 +41,8 @@ public class Board extends JPanel {
          }
 
     }
+
+
 
     // ----------------------------------------------------------------------------------- METHODS
     public void fillBoard() // Fills the board (technically, this.cells) with new Cell instances...
@@ -180,4 +182,19 @@ public class Board extends JPanel {
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
     }
+
+    public void setCells(TreeMap<Position, Cell> cells) {
+        this.cells = cells;
+    }
+
+    public TreeMap<Position, Cell> getCells() {
+        return cells;
+    }
+
+    @Override
+    public String toString() {
+        return "Board{" + "sideLength=" + sideLength + ", cells=" + cells + ", oldGeneration=" + oldGeneration + ", drawingMargin=" + drawingMargin + '}';
+    }
+    
+    
 }
